@@ -34,9 +34,48 @@ document.addEventListener("DOMContentLoaded", () => {
   const submit = document.getElementsByClassName("favorite-submit")[0]
   submit.addEventListener("click",handleSubmit)
 
-  // adding new photos
+  // show photo add form
 
-  // --- your code here!
+  const toggleForm = (e) => {
+    const photoForm = document.querySelectorAll("#form")[0]
+    if (photoForm.className === "photo-form-container hidden"){
+      photoForm.className = "photo-form-container"
+    } else {
+      photoForm.className = "photo-form-container hidden"
+    }
+  }
+
+  const button = document.querySelectorAll(".photo-show-button")[0]
+  button.addEventListener("click",toggleForm)
+
+
+// add photos
+
+const handleAddPhoto = (e) => {
+
+  e.preventDefault()
+
+  const imageFormInput = document.querySelectorAll(".photo-url-input")[0]
+  const img = imageFormInput.value
+
+
+  imageFormInput.value = ""
+
+  const newImg = document.createElement("img")
+  newImg.src = img
+
+  const imgLi = document.createElement("li")
+  imgLi.appendChild(newImg)
+
+  const imgList = document.querySelectorAll(".dog-photos")[0]
+  imgList.appendChild(imgLi)
+  }
+
+  const addPhotoButton = document.querySelectorAll(".photo-url-submit")[0]
+  addPhotoButton.addEventListener("click",handleAddPhoto)
+
+
+
 
 
 
